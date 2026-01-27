@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="kk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qyzylorda Times - Аймақтық ақпарат агенттігі</title>
+
+    <!-- Подключение Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Иконки FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Шрифт Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .brand-red {
+            background-color: #D60023;
+        }
+
+        /* Основной красный цвет */
+        .text-brand-red {
+            color: #D60023;
+        }
+
+        .news-gradient {
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 flex flex-col min-h-screen">
+
+    <!-- === ТОП-БАР (РЕКЛАМА И ИНФО) === -->
+    <div class="bg-white border-b border-gray-200 py-2 hidden md:block">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <!-- Левая часть: Баннер/QR -->
+            <div class="flex items-center space-x-4">
+                <div class="border rounded p-2 flex items-center gap-2">
+                    <i class="fas fa-qrcode text-3xl text-brand-red"></i>
+                    <div class="text-xs leading-tight">
+                        <strong>Kaspi QR</strong><br>
+                        Газетке жазылу
+                    </div>
+                </div>
+            </div>
+
+            <!-- Правая часть: Инфо (Кызылорда) -->
+            <div class="flex items-center bg-green-900 text-white rounded px-4 py-2 space-x-6 text-sm">
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>8 (7242) 27-01-01</span>
+                </div>
+                <div class="hidden lg:block text-xs text-green-200">
+                    ЖШС "Syrdarya Media"<br>Қызылорда қ., Бейбарыс сұлтан, 1
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- === HEADER (ШАПКА) === -->
+    <header class="brand-red text-white">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex justify-between items-end">
+                <!-- Логотип -->
+                <div class="flex items-center gap-3">
+                    <div
+                        class="w-14 h-14 bg-white rounded-full flex items-center justify-center text-brand-red text-3xl font-black shadow-lg">
+                        Q
+                    </div>
+                    <div>
+                        <h1 class="text-3xl font-black tracking-wide uppercase leading-none">Qyzylorda</h1>
+                        <span class="text-lg font-light tracking-[0.2em] uppercase">Times.kz</span>
+                    </div>
+                </div>
+
+                <!-- Погода и Курс -->
+                <div class="flex gap-6 text-sm font-medium">
+                    <div class="text-right">
+                        <div class="opacity-70">Қызылорда</div>
+                        <div class="text-xl flex items-center gap-2">
+                            <i class="fas fa-snowflake"></i> -8.5°C
+                        </div>
+                        <div class="text-xs opacity-70">27.01.2026</div>
+                    </div>
+                    <div class="h-10 w-[1px] bg-white opacity-30"></div>
+                    <div class="text-right">
+                        <div>USD: 501.50</div>
+                        <div>EUR: 545.20</div>
+                        <div>RUB: 5.40</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- === МЕНЮ НАВИГАЦИИ === -->
+    <nav class="bg-white shadow sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center">
+                <!-- Ссылки -->
+                <ul class="flex space-x-6 py-4 font-bold text-gray-700 text-sm overflow-x-auto whitespace-nowrap">
+                    <li class="hover:text-brand-red cursor-pointer"><i class="fas fa-bars mr-2"></i> МӘЗІР</li>
+                    <li class="hover:text-brand-red cursor-pointer text-brand-red">ЖАҢАЛЫҚТАР</li>
+                    <li class="hover:text-brand-red cursor-pointer">САЯСАТ</li>
+                    <li class="hover:text-brand-red cursor-pointer">ҚОҒАМ</li>
+                    <li class="hover:text-brand-red cursor-pointer">ЭКОНОМИКА</li>
+                    <li class="hover:text-brand-red cursor-pointer">БІЛІМ</li>
+                    <li class="hover:text-brand-red cursor-pointer">АУЫЛ ШАРУАШЫЛЫҒЫ</li>
+                    <li class="hover:text-brand-red cursor-pointer">СПОРТ</li>
+                </ul>
+                <!-- Иконки справа -->
+                <div class="flex space-x-4 text-gray-500 pl-4 border-l">
+                    <i class="fas fa-search cursor-pointer hover:text-black"></i>
+                    <i class="fas fa-eye cursor-pointer hover:text-black"></i>
+                    <span class="cursor-pointer hover:text-black font-bold">ҚАЗ</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- === MAIN CONTENT (HERO) === -->
+    <main class="container mx-auto px-4 py-6 grid grid-cols-1 lg:grid-cols-4 gap-6">
+
+        <!-- Главная новость (Hero Left) -->
+        <div class="lg:col-span-3 relative h-96 group cursor-pointer overflow-hidden rounded-sm shadow-md">
+            <!-- Заглушка изображения -->
+            <img src="https://placehold.co/800x600/222/FFF?text=Korkyt+Ata+Memorial"
+                class="w-full h-full object-cover transition duration-700 group-hover:scale-105" alt="Main News">
+
+            <div class="absolute bottom-0 left-0 w-full news-gradient p-6 text-white">
+                <span class="bg-brand-red px-2 py-1 text-xs font-bold uppercase mb-2 inline-block">Басты жаңалық</span>
+                <h2 class="text-3xl font-bold leading-tight mb-2">Қызылорда облысында суды үнемдеудің жаңа
+                    технологиялары енгізіледі</h2>
+                <div class="flex items-center text-sm opacity-80 gap-4">
+                    <span><i class="far fa-clock"></i> 11:30, Бүгін</span>
+                    <span><i class="fas fa-user"></i> Гүлмира Сәдірқызы</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Сайдбар (Анонс/Правое меню) -->
+        <div class="lg:col-span-1 bg-white shadow-sm border border-gray-200">
+            <div class="brand-red text-white p-3 font-bold uppercase flex justify-between items-center">
+                <span>Анонс</span>
+                <i class="fab fa-whatsapp text-xl"></i>
+            </div>
+
+            <!-- Список анонсов -->
+            <div class="divide-y divide-gray-100">
+                <!-- Item 1 -->
+                <div class="p-3 hover:bg-gray-50 cursor-pointer flex gap-3">
+                    <img src="https://placehold.co/100x100/333/FFF?text=News" class="w-16 h-16 object-cover rounded">
+                    <div>
+                        <div class="text-[10px] text-gray-500 flex justify-between">
+                            <span><i class="fas fa-circle text-xs text-green-500"></i> Арал</span>
+                            <span>10:45</span>
+                        </div>
+                        <h4 class="text-sm font-semibold leading-snug line-clamp-2">Арал ауданында балық шаруашылығы
+                            дамып келеді</h4>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="p-3 hover:bg-gray-50 cursor-pointer flex gap-3">
+                    <img src="https://placehold.co/100x100/444/FFF?text=Space" class="w-16 h-16 object-cover rounded">
+                    <div>
+                        <div class="text-[10px] text-gray-500 flex justify-between">
+                            <span><i class="fas fa-circle text-xs text-blue-500"></i> Байқоңыр</span>
+                            <span>09:20</span>
+                        </div>
+                        <h4 class="text-sm font-semibold leading-snug line-clamp-2">Байқоңыр айлағынан "Протон" зымыраны
+                            ұшырылды</h4>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="p-3 hover:bg-gray-50 cursor-pointer flex gap-3">
+                    <img src="https://placehold.co/100x100/555/FFF?text=Kaysar" class="w-16 h-16 object-cover rounded">
+                    <div>
+                        <div class="text-[10px] text-gray-500 flex justify-between">
+                            <span><i class="fas fa-circle text-xs text-red-500"></i> Спорт</span>
+                            <span>Кеше</span>
+                        </div>
+                        <h4 class="text-sm font-semibold leading-snug line-clamp-2">"Қайсар" футбол клубы Түркияда
+                            оқу-жаттығу жиынын өткізуде</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- === ЛЕНТА НОВОСТЕЙ === -->
+    <section class="container mx-auto px-4 mb-8">
+        <div class="bg-brand-red text-white px-4 py-2 font-bold inline-block rounded-t-sm mb-1">
+            Барлық жаңалықтар
+        </div>
+        <div class="bg-gray-800 h-0.5 w-full mb-4 opacity-10"></div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- News Card 1 -->
+            <div class="bg-white group cursor-pointer shadow-sm hover:shadow-lg transition">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="https://placehold.co/400x300/eab308/FFF?text=Rice+Fields"
+                        class="w-full h-full object-cover group-hover:scale-105 transition">
+                    <span
+                        class="absolute bottom-2 right-2 bg-black bg-opacity-70 text-white text-xs px-2 py-1">21:30</span>
+                </div>
+                <div class="p-4 border border-t-0 border-gray-200">
+                    <div class="text-xs text-brand-red font-bold uppercase mb-2">Ауыл шаруашылығы</div>
+                    <h3 class="text-lg font-bold leading-snug text-gray-800 group-hover:text-brand-red mb-3">
+                        Биылғы жылы Сыр өңірінде күріштен рекордтық өнім жиналды
+                    </h3>
+                    <p class="text-xs text-gray-400">Өткен жылмен салыстырғанда өнімділік 15%-ға артқан...</p>
+                </div>
+            </div>
+
+            <!-- News Card 2 -->
+            <div class="bg-white group cursor-pointer shadow-sm hover:shadow-lg transition">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="https://placehold.co/400x300/3b82f6/FFF?text=Qyzylorda+City"
+                        class="w-full h-full object-cover group-hover:scale-105 transition">
+                    <span
+                        class="absolute bottom-2 right-2 bg-black bg-opacity-70 text-white text-xs px-2 py-1">18:45</span>
+                </div>
+                <div class="p-4 border border-t-0 border-gray-200">
+                    <div class="text-xs text-brand-red font-bold uppercase mb-2">Инфрақұрылым</div>
+                    <h3 class="text-lg font-bold leading-snug text-gray-800 group-hover:text-brand-red mb-3">
+                        Қызылорда қаласында жылу электр орталығы жаңғыртылуда
+                    </h3>
+                    <p class="text-xs text-gray-400">Құрылыс жұмыстары кестеге сай жүргізіліп жатыр...</p>
+                </div>
+            </div>
+
+            <!-- News Card 3 -->
+            <div class="bg-white group cursor-pointer shadow-sm hover:shadow-lg transition">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="https://placehold.co/400x300/10b981/FFF?text=Meetings"
+                        class="w-full h-full object-cover group-hover:scale-105 transition">
+                    <span
+                        class="absolute bottom-2 right-2 bg-black bg-opacity-70 text-white text-xs px-2 py-1">14:20</span>
+                </div>
+                <div class="p-4 border border-t-0 border-gray-200">
+                    <div class="text-xs text-brand-red font-bold uppercase mb-2">Әкімдік</div>
+                    <h3 class="text-lg font-bold leading-snug text-gray-800 group-hover:text-brand-red mb-3">
+                        Облыс әкімі ауыл тұрғындарымен кездесу өткізді
+                    </h3>
+                    <p class="text-xs text-gray-400">Тұрғындар әлеуметтік мәселелер мен жол жөндеу жұмыстарын сұрады...
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- === ТАНЫМАЛ (POPULAR) === -->
+    <section class="bg-gray-900 py-10 text-white mb-8">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold mb-6 border-l-4 border-brand-red pl-4">Танымал жаңалықтар</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+                <div
+                    class="flex bg-gray-800 rounded-lg overflow-hidden h-32 md:h-40 group cursor-pointer hover:bg-gray-700">
+                    <img src="https://placehold.co/200x200/555/FFF?text=Photo"
+                        class="w-1/3 object-cover opacity-80 group-hover:opacity-100 transition">
+                    <div class="p-4 w-2/3 flex flex-col justify-center">
+                        <span class="text-xs text-gray-400 mb-1">23 қаңтар 2026</span>
+                        <h3 class="font-bold text-lg leading-tight line-clamp-3">Автокөлік жолдарын жөндеу стандарттары
+                            өзгереді</h3>
+                    </div>
+                    <div class="w-10 bg-brand-red flex items-center justify-center">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <div
+                    class="flex bg-gray-800 rounded-lg overflow-hidden h-32 md:h-40 group cursor-pointer hover:bg-gray-700">
+                    <img src="https://placehold.co/200x200/666/FFF?text=Hospital"
+                        class="w-1/3 object-cover opacity-80 group-hover:opacity-100 transition">
+                    <div class="p-4 w-2/3 flex flex-col justify-center">
+                        <span class="text-xs text-gray-400 mb-1">21 қаңтар 2026</span>
+                        <h3 class="font-bold text-lg leading-tight line-clamp-3">Көпбейінді облыстық ауруханаға жаңа
+                            жабдықтар алынды</h3>
+                    </div>
+                    <div class="w-10 bg-gray-600 group-hover:bg-brand-red transition flex items-center justify-center">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- === ФУТЕР === -->
+    <footer class="bg-[#1a1a1a] text-white pt-10 mt-auto">
+        <div
+            class="container mx-auto px-4 pb-8 border-b border-gray-800 grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+            <!-- Branding -->
+            <div>
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 bg-white text-black rounded-full flex items-center justify-center font-bold">Q
+                    </div>
+                    <span class="font-bold text-xl uppercase">QYZYLORDA TIMES</span>
+                </div>
+                <h2 class="text-2xl font-semibold mb-2">Соңғы жаңалықтардан <br>хабардар бол!</h2>
+                <div class="text-gray-400 text-sm mb-4">
+                    email: editor@qyzylordatimes.kz
+                </div>
+            </div>
+
+            <!-- Stylized Map Placeholder (Canvas/Image representation) -->
+            <div class="flex justify-center opacity-30">
+                <!-- Просто SVG иконка карты как плейсхолдер -->
+                <i class="fas fa-map text-[100px]"></i>
+            </div>
+
+            <!-- Socials -->
+            <div class="flex flex-col items-end">
+                <div class="flex gap-4 text-2xl mb-4">
+                    <a href="#" class="hover:text-brand-red"><i class="fab fa-telegram"></i></a>
+                    <a href="#" class="hover:text-brand-red"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="hover:text-brand-red"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" class="hover:text-brand-red"><i class="fab fa-facebook"></i></a>
+                </div>
+                <div class="text-sm text-gray-500 text-right">
+                    Сайт материалын пайдалану үшін<br>редакция келісімі керек
+                </div>
+            </div>
+        </div>
+
+        <!-- Links Line -->
+        <div class="bg-[#111] py-4 text-sm text-gray-500">
+            <div class="container mx-auto px-4 flex flex-wrap justify-between">
+                <div class="space-x-4">
+                    <a href="#" class="hover:text-white">Жаңалықтар</a>
+                    <a href="#" class="hover:text-white">Саясат</a>
+                    <a href="#" class="hover:text-white">Қоғам</a>
+                    <a href="#" class="hover:text-white">Жарнама</a>
+                    <a href="#" class="hover:text-white">Ел аузында</a>
+                </div>
+                <div>
+                    Copyright ©2026 Барлық құқықтар қорғалған | ЖШС "Syrdarya Media"
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

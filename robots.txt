@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+
+# Запретить индексацию админ-панели
+Disallow: /admin/
+Disallow: /admin
+
+# Запретить индексацию служебных директорий
+Disallow: /config/
+Disallow: /core/
+Disallow: /app/
+Disallow: /database/
+
+# Разрешить индексацию изображений
+Allow: /uploads/
+Allow: /assets/
+
+# Sitemap
+Sitemap: https://qyzylordatimes.kz/sitemap.xml

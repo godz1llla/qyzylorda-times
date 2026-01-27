@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="kk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сыр өңірінде күріш жинау науқаны басталды - Qyzylorda Times</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Иконки FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Шрифт Roboto -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .brand-red {
+            background-color: #D60023;
+        }
+
+        .text-brand-red {
+            color: #D60023;
+        }
+
+        .border-brand-red {
+            border-color: #D60023;
+        }
+
+        /* Стили для типографики статьи */
+        .article-content p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+            font-size: 1.05rem;
+            color: #1f2937;
+        }
+
+        .article-content h2 {
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+
+<body class="bg-[#F5F6F8] flex flex-col min-h-screen">
+
+    <!-- === HEADER (ПОВТОРЯЕТСЯ С ГЛАВНОЙ) === -->
+    <div class="bg-white border-b border-gray-200 py-2 hidden md:block">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <!-- Kaspi QR -->
+            <div class="flex items-center">
+                <div class="border rounded p-1 flex items-center gap-2 pr-3">
+                    <i class="fas fa-qrcode text-3xl text-brand-red"></i>
+                    <div class="text-[10px] leading-tight text-gray-600">
+                        <strong>Kaspi QR</strong><br>Газетке жазылу
+                    </div>
+                </div>
+            </div>
+            <!-- Info -->
+            <div class="flex items-center bg-[#1F1F1F] text-white rounded px-4 py-2 space-x-4 text-xs">
+                <div>Қызылорда -5.0°C</div>
+                <div>27.01.2026</div>
+                <div class="border-l border-gray-600 pl-4">
+                    USD: 501.50 <br> EUR: 545.20
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header class="brand-red text-white">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-end">
+            <div class="flex items-center gap-3">
+                <div
+                    class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-brand-red text-2xl font-black">
+                    Q</div>
+                <div>
+                    <h1 class="text-2xl font-black uppercase leading-none">QYZYLORDA</h1>
+                    <span class="text-xs font-light tracking-widest uppercase">NEWS.KZ</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="bg-white shadow sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center">
+                <div class="cursor-pointer py-3 pr-4 md:hidden"><i class="fas fa-bars"></i></div>
+                <ul class="hidden md:flex space-x-6 py-3 font-medium text-sm text-gray-700">
+                    <li class="hover:text-brand-red cursor-pointer">ЖАҢАЛЫҚТАР</li>
+                    <li class="hover:text-brand-red cursor-pointer">САЯСАТ</li>
+                    <li class="hover:text-brand-red cursor-pointer">ҚОҒАМ</li>
+                    <li class="hover:text-brand-red cursor-pointer">ЕЛ АУЗЫНДА</li>
+                    <li class="hover:text-brand-red cursor-pointer">СПОРТ</li>
+                </ul>
+                <div class="flex gap-3 text-gray-500 text-sm">
+                    <i class="fas fa-search hover:text-black cursor-pointer"></i>
+                    <span>KAZ / RU</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- === MAIN ARTICLE CONTAINER === -->
+    <main class="container mx-auto px-4 py-8">
+
+        <!-- Хлебные крошки -->
+        <div class="text-xs text-gray-400 mb-4 uppercase">
+            <a href="#" class="hover:text-brand-red">Басты</a> <span class="mx-1">|</span> <span
+                class="text-gray-600">Қызылорда жаңалықтары</span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+
+            <!-- LEFT COLUMN (ARTICLE CONTENT) - 75% width -->
+            <div class="lg:col-span-3">
+
+                <!-- Заголовок -->
+                <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight mb-6">
+                    Қызылордалық ғалымдар жаңа күріш сортын ойлап тапты
+                </h1>
+
+                <!-- Автор и Дата -->
+                <div class="flex items-center gap-4 text-gray-500 text-sm mb-6 border-b pb-4">
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center text-gray-500">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <span class="font-medium text-gray-800">Айдос Нұрпейіс</span>
+                    </div>
+                    <span class="text-gray-300">|</span>
+                    <span>27.01.2026 14:30</span>
+                </div>
+
+                <!-- Главное фото -->
+                <figure class="mb-8">
+                    <img src="https://placehold.co/800x500/10b981/FFF?text=Rice+Field+Technology"
+                        class="w-full h-auto rounded-lg shadow-sm" alt="Main News Image">
+                    <figcaption class="text-center text-xs text-gray-400 mt-2">© "Qyzylorda Times" редакциясы
+                    </figcaption>
+                </figure>
+
+                <div class="flex gap-6">
+
+                    <!-- Соцсети (Слева, как на макете) -->
+                    <div class="hidden md:flex flex-col gap-3 w-10 flex-shrink-0 pt-2">
+                        <a href="#" class="text-green-500 hover:scale-110 transition text-2xl"><i
+                                class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="text-blue-500 hover:scale-110 transition text-2xl"><i
+                                class="fab fa-telegram"></i></a>
+                        <a href="#" class="text-black hover:scale-110 transition text-2xl"><i
+                                class="fab fa-tiktok"></i></a>
+                        <a href="#" class="text-pink-600 hover:scale-110 transition text-2xl"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-blue-700 hover:scale-110 transition text-2xl"><i
+                                class="fab fa-facebook"></i></a>
+                    </div>
+
+                    <!-- Текст статьи -->
+                    <div class="article-content flex-1">
+                        <p class="font-semibold text-lg">
+                            Бүгін Қызылорда облыстық ауыл шаруашылығы басқармасы жаңа "Сыр маржаны 2.0" сұрыпын
+                            таныстырды. Бұл туралы Qyzylorda Times тілшісі хабарлайды.
+                        </p>
+                        <p>
+                            Мамандардың айтуынша, жаңа сұрып суды аз қажет етеді және тұзды топыраққа төзімді. Соңғы
+                            жылдары өңірдегі су тапшылығы мәселесі диқандарды қатты алаңдатып отырғаны жасырын емес.
+                            Сондықтан ғалымдар 3 жыл бойы зерттеу жүргізіп, нәтижесінде осы сұрыпты шығарды.
+                        </p>
+                        <p>
+                            — Біз су үнемдеу технологияларын енгізуге мәжбүрміз. Жаңа сұрып 15-20% аз су ішеді, ал
+                            түсімділігі гектарына 60 центнерден кем түспейді, — деді агроном Берік Смағұлов.
+                        </p>
+                        <p>
+                            Сонымен қатар, жиында келесі егіс науқанына дайындық барысы да талқыланды. Техникалардың 90%
+                            қазірдің өзінде сайланып қойған.
+                        </p>
+                        <div class="bg-blue-50 border-l-4 border-blue-500 p-4 my-4 italic text-gray-700">
+                            Айта кетейік, биылғы жылы Қызылорда облысында 89 мың гектар жерге күріш егілу жоспарлануда.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Теги -->
+                <div class="mt-8 flex gap-2 flex-wrap ml-0 md:ml-16">
+                    <a href="#"
+                        class="border border-brand-red text-brand-red px-3 py-1 rounded text-sm hover:bg-brand-red hover:text-white transition">Ауыл
+                        шаруашылығы</a>
+                    <a href="#"
+                        class="border border-brand-red text-brand-red px-3 py-1 rounded text-sm hover:bg-brand-red hover:text-white transition">Күріш</a>
+                    <a href="#"
+                        class="border border-brand-red text-brand-red px-3 py-1 rounded text-sm hover:bg-brand-red hover:text-white transition">Жаңалықтар</a>
+                </div>
+
+                <!-- Просмотры -->
+                <div class="flex justify-end text-gray-400 text-sm items-center gap-2 mt-4">
+                    <i class="far fa-eye"></i> 1,248
+                </div>
+
+                <!-- Блок Комментарии: Форма -->
+                <div class="bg-white p-6 rounded-lg shadow-sm mt-8 border border-gray-100">
+                    <h3 class="text-xl font-bold mb-4">Комментарии</h3>
+                    <div class="mb-4">
+                        <textarea
+                            class="w-full border border-gray-200 rounded p-3 text-sm focus:outline-none focus:border-brand-red transition h-24 bg-gray-50"
+                            placeholder="Написать комментарий..."></textarea>
+                    </div>
+                    <button
+                        class="bg-white border border-gray-300 text-gray-700 hover:bg-gray-50 px-6 py-2 rounded text-sm font-medium transition">
+                        Отправить
+                    </button>
+                    <p class="text-xs text-gray-400 mt-2">* Пікір модератор тексергеннен кейін жарияланады</p>
+                </div>
+
+                <!-- Блок Комментарии: Список (Пустой как на макете) -->
+                <div
+                    class="bg-white p-6 rounded-lg shadow-sm mt-6 border border-gray-100 min-h-[150px] flex flex-col justify-center items-center">
+                    <h4 class="text-lg font-semibold w-full text-left mb-4">Комментарии</h4>
+                    <div class="text-gray-400 text-sm">Нет комментариев</div>
+                </div>
+
+            </div>
+
+            <!-- RIGHT COLUMN (SIDEBAR) - 25% width -->
+            <aside class="lg:col-span-1">
+
+                <!-- Табы: Басты / Танымал -->
+                <div class="flex mb-4">
+                    <button class="flex-1 bg-brand-red text-white py-3 text-sm font-bold uppercase rounded-l">
+                        Басты <br> жаңалықтар
+                    </button>
+                    <button
+                        class="flex-1 bg-white border border-l-0 text-gray-600 py-3 text-sm font-bold uppercase rounded-r hover:bg-gray-50">
+                        Танымал
+                    </button>
+                </div>
+
+                <!-- Лента новостей справа -->
+                <div class="space-y-6">
+
+                    <!-- Item 1 -->
+                    <div class="group cursor-pointer">
+                        <h4
+                            class="font-medium text-gray-800 text-sm leading-snug group-hover:text-brand-red transition mb-1">
+                            "Қызылорда жылу электр орталығы" жаңғыртудан өтуде
+                        </h4>
+                        <div class="text-xs text-gray-400">27.01.2026 13:45</div>
+                        <div class="border-b border-gray-200 mt-3"></div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="group cursor-pointer">
+                        <h4
+                            class="font-medium text-gray-800 text-sm leading-snug group-hover:text-brand-red transition mb-1">
+                            Қайсар футбол клубы Түркияда оқу-жаттығу жиынын аяқтады
+                        </h4>
+                        <div class="text-xs text-gray-400">27.01.2026 12:10</div>
+                        <div class="border-b border-gray-200 mt-3"></div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="group cursor-pointer">
+                        <h4
+                            class="font-medium text-gray-800 text-sm leading-snug group-hover:text-brand-red transition mb-1">
+                            Қармақшы ауданында жаңа мектеп пайдалануға берілді
+                        </h4>
+                        <div class="text-xs text-gray-400">27.01.2026 10:30</div>
+                        <div class="border-b border-gray-200 mt-3"></div>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="group cursor-pointer">
+                        <h4
+                            class="font-medium text-gray-800 text-sm leading-snug group-hover:text-brand-red transition mb-1">
+                            "Батыс Еуропа - Батыс Қытай" жолында көлік қозғалысы шектелді
+                        </h4>
+                        <div class="text-xs text-gray-400">26.01.2026 19:20</div>
+                        <div class="border-b border-gray-200 mt-3"></div>
+                    </div>
+
+                </div>
+
+                <!-- Кнопка Все новости -->
+                <div class="mt-6">
+                    <a href="#"
+                        class="block w-full bg-red-50 text-brand-red text-center py-3 rounded font-bold text-sm hover:bg-red-100 transition">
+                        Барлық жаңалықтар <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+
+                <!-- Рекламный баннер справа -->
+                <div class="mt-8">
+                    <div class="bg-gray-200 w-full h-64 flex items-center justify-center text-gray-400 rounded">
+                        Жарнама орны
+                    </div>
+                </div>
+
+            </aside>
+        </div>
+    </main>
+
+    <!-- === FOOTER (ПОВТОРЯЕТСЯ С ГЛАВНОЙ) === -->
+    <footer class="bg-[#1a1a1a] text-white pt-10 mt-auto border-t-4 border-brand-red">
+        <div class="container mx-auto px-4 pb-8 text-center">
+            <h2 class="text-2xl font-bold uppercase mb-4">Qyzylorda Times</h2>
+            <p class="text-gray-500 text-sm mb-6">Ақпараттық порталдың материалдарын пайдалану үшін редакция келісімі
+                керек</p>
+            <div class="flex justify-center gap-6 text-2xl text-gray-400 mb-8">
+                <i class="fab fa-instagram hover:text-white cursor-pointer"></i>
+                <i class="fab fa-telegram hover:text-white cursor-pointer"></i>
+                <i class="fab fa-tiktok hover:text-white cursor-pointer"></i>
+            </div>
+            <div class="text-xs text-gray-600 border-t border-gray-800 pt-4">
+                © 2026 "Syrdarya Media" ЖШС. Барлық құқықтар қорғалған.
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
