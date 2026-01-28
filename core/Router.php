@@ -43,8 +43,14 @@ class Router
      */
     private function getUrl()
     {
-        $url = isset($_GET['url']) ? $_GET['url'] : '';
-        return trim($url, '/');
+        // 1. Если работаем через Apache (.htaccess), берем из GET
+        if (isset($_GET['url'])) {
+            return trim($_GET['url'], '/');
+        }
+
+        // 2. Если работаем на php -S (или Nginx без params), парсим REQUEST_URI
+        $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+        return trim($uri, '/');
     }
 
     /**

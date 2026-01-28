@@ -7,8 +7,8 @@
 return [
     'host' => 'localhost',
     'database' => 'qyzylorda_times',
-    'username' => 'root',
-    'password' => '',
+    'username' => 'qyzylorda_user',
+    'password' => 'qyzylorda_pass_2026',
     'charset' => 'utf8mb4',
     'collation' => 'utf8mb4_unicode_ci',
     'options' => [

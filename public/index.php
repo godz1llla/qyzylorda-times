@@ -13,12 +13,17 @@ ini_set('display_errors', 1);
 
 // Подключаем autoloader для классов
 spl_autoload_register(function ($className) {
+    // Заменяем namespace разделитель на разделитель директорий
+    $className = str_replace('\\', '/', $className);
+
+    // DEBUG (удалить в продакшене)
+    // error_log("Autoloader: trying to load class: $className");
+
     // Пути для поиска классов
     $paths = [
         __DIR__ . '/../core/' . $className . '.php',
         __DIR__ . '/../app/models/' . $className . '.php',
         __DIR__ . '/../app/controllers/' . $className . '.php',
-        __DIR__ . '/../app/controllers/admin/' . $className . '.php',
         __DIR__ . '/../app/helpers/' . $className . '.php',
         __DIR__ . '/../app/services/' . $className . '.php',
     ];
@@ -26,9 +31,12 @@ spl_autoload_register(function ($className) {
     foreach ($paths as $path) {
         if (file_exists($path)) {
             require_once $path;
+            // error_log("Autoloader: loaded from: $path");
             return;
         }
     }
+
+    // error_log("Autoloader: class not found: $className");
 });
 
 // Запускаем сессию

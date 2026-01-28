@@ -3,9 +3,11 @@
  * AdminCommentController - Контроллер управления комментариями
  */
 
+namespace admin;
+
 require_once __DIR__ . '/../../../core/Controller.php';
 
-class AdminCommentController extends Controller
+class AdminCommentController extends \Controller
 {
     private $commentModel;
 
@@ -36,7 +38,7 @@ class AdminCommentController extends Controller
         try {
             $this->commentModel->approve($id, $_SESSION['admin_user_id']);
             $_SESSION['success'] = 'Комментарий одобрен';
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $_SESSION['error'] = 'Ошибка при одобрении комментария';
         }
 
@@ -51,7 +53,7 @@ class AdminCommentController extends Controller
         try {
             $this->commentModel->reject($id, $_SESSION['admin_user_id']);
             $_SESSION['success'] = 'Комментарий отклонен';
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $_SESSION['error'] = 'Ошибка при отклонении комментария';
         }
 
@@ -66,7 +68,7 @@ class AdminCommentController extends Controller
         try {
             $this->commentModel->delete($id);
             $_SESSION['success'] = 'Комментарий удален';
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $_SESSION['error'] = 'Ошибка при удалении комментария';
         }
 

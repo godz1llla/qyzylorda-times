@@ -22,80 +22,41 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // Получаем избранную новость (hero)
-        $heroPost = $this->postModel->getFeatured($this->lang);
+        // Определяем текущий язык из URL
+        $lang = $this->getLang();
 
-        // Получаем анонсы для сайдбара
-        $announcements = $this->postModel->getAnnouncements($this->lang, 5);
+        // Получаем данные для главной страницы
+        $postModel = $this->model('PostModel');
 
-        // Получаем последние новости
-        $latestNews = $this->postModel->getPublished($this->lang, 9, 0);
+        // Hero новость (is_featured = 1)
+        $heroPost = $postModel->getFeatured($lang);
 
-        // Получаем популярные новости
-        $popularNews = $this->postModel->getPopular($this->lang, 2);
+        // Анонсы (is_announcement = 1)
+        $announcements = $postModel->getAnnouncements($lang, 5);
 
-        // Получаем категории для меню
-        $categories = $this->categoryModel->getAllCategories($this->lang);
+        // Последние новости
+        $latestNews = $postModel->getPublished($lang, 6, 0);
 
-        // Получаем погоду и валюты
-        $weather = $this->getWeather();
-        $currency = $this->getCurrency();
+        // Популярные новости
+        $popularNews = $postModel->getPopular($lang, 4);
+
+        // Получаем погоду
+        $weatherService = new WeatherService();
+        $weather = $weatherService->getCurrentWeather();
+
+        // Получаем курсы валют
+        $currencyService = new CurrencyService();
+        $currency = $currencyService->getRates();
 
         // Передаем данные в представление
         $this->view('home/index', [
+            'lang' => $lang,
             'heroPost' => $heroPost,
             'announcements' => $announcements,
             'latestNews' => $latestNews,
             'popularNews' => $popularNews,
-            'categories' => $categories,
             'weather' => $weather,
             'currency' => $currency
         ]);
-    }
-
-    /**
-     * Получить данные погоды из кеша
-     */
-    private function getWeather()
-    {
-        $sql = "SELECT * FROM weather_cache 
-                WHERE expires_at > NOW() 
-                ORDER BY id DESC LIMIT 1";
-
-        $weather = $this->db->fetchOne($sql);
-
-        // Если кеш истек или пуст, используем значения по умолчанию
-        if (!$weather) {
-            $weather = [
-                'temperature' => -8.5,
-                'condition' => 'Ясно',
-                'icon' => '01d'
-            ];
-        }
-
-        return $weather;
-    }
-
-    /**
-     * Получить курсы валют из кеша
-     */
-    private function getCurrency()
-    {
-        $sql = "SELECT * FROM currency_cache 
-                WHERE expires_at > NOW() 
-                ORDER BY id DESC LIMIT 1";
-
-        $currency = $this->db->fetchOne($sql);
-
-        // Если кеш истек или пуст, используем значения по умолчанию
-        if (!$currency) {
-            $currency = [
-                'usd_rate' => 501.50,
-                'eur_rate' => 545.20,
-                'rub_rate' => 5.40
-            ];
-        }
-
-        return $currency;
     }
 }

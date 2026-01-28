@@ -79,7 +79,9 @@ class Controller
      */
     protected function requireAuth()
     {
-        session_start();
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
 
         if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
             $this->redirect('/admin/login');
@@ -123,7 +125,9 @@ class Controller
      */
     protected function validateCSRF($token)
     {
-        session_start();
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
 
         if (!isset($_SESSION['csrf_token']) || $token !== $_SESSION['csrf_token']) {
             return false;
@@ -137,12 +141,22 @@ class Controller
      */
     protected function generateCSRF()
     {
-        session_start();
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
 
         if (!isset($_SESSION['csrf_token'])) {
             $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
         }
 
         return $_SESSION['csrf_token'];
+    }
+
+    /**
+     * Получить текущий язык
+     */
+    protected function getLang()
+    {
+        return $this->lang;
     }
 }

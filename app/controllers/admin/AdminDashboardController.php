@@ -3,9 +3,11 @@
  * AdminDashboardController - Контроллер панели управления
  */
 
+namespace admin;
+
 require_once __DIR__ . '/../../../core/Controller.php';
 
-class AdminDashboardController extends Controller
+class AdminDashboardController extends \Controller
 {
     private $postModel;
     private $commentModel;

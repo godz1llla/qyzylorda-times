@@ -3,9 +3,11 @@
  * AuthController - Контроллер аутентификации для админ-панели
  */
 
+namespace admin;
+
 require_once __DIR__ . '/../../../core/Controller.php';
 
-class AuthController extends Controller
+class AuthController extends \Controller
 {
     private $userModel;
 

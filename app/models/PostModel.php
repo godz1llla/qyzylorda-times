@@ -159,22 +159,20 @@ class PostModel extends Model
      */
     public function createPost($data)
     {
-        // Генерируем slug если не указан
-        if (empty($data['slug_kz'])) {
-            $data['slug_kz'] = $this->generateSlug($data['title_kz'], 'kz');
+        // Проверка и генерация slug если не указан
+        if (empty($data['slug_kz']) && !empty($data['title_kz'])) {
+            $slugGenerator = new SlugGenerator();
+            $data['slug_kz'] = $slugGenerator->generate($data['title_kz'], 'kz');
         }
 
-        if (!empty($data['title_ru']) && empty($data['slug_ru'])) {
-            $data['slug_ru'] = $this->generateSlug($data['title_ru'], 'ru');
+        if (empty($data['slug_ru']) && !empty($data['title_ru'])) {
+            $slugGenerator = new SlugGenerator();
+            $data['slug_ru'] = $slugGenerator->generate($data['title_ru'], 'ru');
         }
 
-        // Генерируем excerpt если не указан
-        if (empty($data['excerpt_kz']) && !empty($data['content_kz'])) {
-            $data['excerpt_kz'] = $this->generateExcerpt($data['content_kz']);
-        }
-
-        if (empty($data['excerpt_ru']) && !empty($data['content_ru'])) {
-            $data['excerpt_ru'] = $this->generateExcerpt($data['content_ru']);
+        // Дата публикации по умолчанию - сейчас
+        if (!isset($data['published_at'])) {
+            $data['published_at'] = date('Y-m-d H:i:s');
         }
 
         return $this->insert($data);
@@ -221,5 +219,20 @@ class PostModel extends Model
 
         $result = $this->db->fetchOne($sql);
         return $result['total_views'] ?? 0;
+    }
+
+    /**
+     * Получить все посты для админки (включая черновики) с пагинацией
+     */
+    public function getAllForAdmin($limit = 20, $offset = 0)
+    {
+        $sql = "SELECT p.*, c.name_kz as category_name, u.full_name as author_name
+                FROM {$this->table} p
+                LEFT JOIN categories c ON p.category_id = c.id
+                LEFT JOIN users u ON p.user_id = u.id
+                ORDER BY p.created_at DESC
+                LIMIT {$limit} OFFSET {$offset}";
+
+        return $this->db->fetchAll($sql);
     }
 }
