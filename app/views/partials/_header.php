@@ -86,10 +86,7 @@
                 <!-- Логотип -->
                 <a href="<?= $lang === 'ru' ? '/ru/' : '/' ?>"
                     class="flex items-center gap-3 hover:opacity-90 transition">
-                    <div
-                        class="w-14 h-14 bg-white rounded-full flex items-center justify-center text-brand-red text-3xl font-black shadow-lg">
-                        Q
-                    </div>
+                    <img src="/assets/logo.png" alt="Qyzylorda Times Logo" class="w-20 h-20 object-contain">
                     <div>
                         <h1 class="text-3xl font-black tracking-wide uppercase leading-none">Qyzylorda</h1>
                         <span class="text-lg font-light tracking-[0.2em] uppercase">Times.kz</span>
