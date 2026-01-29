@@ -28,7 +28,11 @@ class CategoryModel extends Model
     {
         $slugColumn = "slug_{$lang}";
 
-        $sql = "SELECT id, name_{$lang} as name, slug_{$lang} as slug, description_{$lang} as description
+        $sql = "SELECT id, 
+                       name_{$lang} as name, 
+                       slug_{$lang} as slug, 
+                       slug_kz, slug_ru,
+                       description_{$lang} as description
                 FROM {$this->table}
                 WHERE {$slugColumn} = ?
                 LIMIT 1";
@@ -43,5 +47,14 @@ class CategoryModel extends Model
     {
         $category = $this->getBySlug($slug, $lang);
         return $category ? $category['id'] : null;
+    }
+
+    /**
+     * Получить все категории со всеми языками (для админки)
+     */
+    public function getAll()
+    {
+        $sql = "SELECT * FROM {$this->table} ORDER BY sort_order ASC";
+        return $this->db->fetchAll($sql);
     }
 }

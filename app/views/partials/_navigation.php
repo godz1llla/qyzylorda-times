@@ -10,10 +10,18 @@
                 </li>
 
                 <?php if (isset($categories) && !empty($categories)): ?>
-                    <?php foreach ($categories as $category): ?>
+                    <?php foreach ($categories as $cat): ?>
                         <li class="hover:text-brand-red cursor-pointer">
-                            <a href="/<?= $lang === 'ru' ? 'ru/' : '' ?><?= $category['slug'] ?>">
-                                <?= strtoupper($category['name']) ?>
+                            <?php
+                            // Категория "Новости" ведет на главную страницу
+                            if ($cat['slug'] === 'zhanalyqtar' || $cat['slug'] === 'novosti') {
+                                $catUrl = $lang === 'ru' ? '/ru/' : '/';
+                            } else {
+                                $catUrl = '/' . ($lang === 'ru' ? 'ru/' : '') . $cat['slug'];
+                            }
+                            ?>
+                            <a href="<?= $catUrl ?>">
+                                <?= strtoupper($cat['name']) ?>
                             </a>
                         </li>
                     <?php endforeach; ?>
@@ -51,18 +59,40 @@
                 <!-- Переключатель языка -->
                 <?php
                 // Генерация URL для переключения языка
-                $currentUrl = $_SERVER['REQUEST_URI'];
-                if ($lang === 'kz') {
-                    // Переключаем на русский: добавляем /ru/
-                    $switchUrl = '/ru' . $currentUrl;
-                } else {
-                    // Переключаем на казахский: убираем /ru/
-                    $switchUrl = str_replace('/ru/', '/', $currentUrl);
-                    $switchUrl = str_replace('/ru', '/', $switchUrl);
+                $switchUrl = '/';
+
+                // Если находимся на странице поста
+                if (isset($post) && !empty($post)) {
+                    $targetLang = $lang === 'kz' ? 'ru' : 'kz';
+                    $categorySlug = $post["slug_{$targetLang}"] ?? $post['category_slug'] ?? '';
+                    $postSlug = $post["slug_{$targetLang}"] ?? '';
+
+                    if (!empty($categorySlug) && !empty($postSlug)) {
+                        $switchUrl = ($targetLang === 'ru' ? '/ru/' : '/') . $categorySlug . '/' . $postSlug;
+                    } else {
+                        // Fallback на главную
+                        $switchUrl = $targetLang === 'ru' ? '/ru/' : '/';
+                    }
+                }
+                // Если находимся на странице категории
+                elseif (isset($category) && !empty($category)) {
+                    $targetLang = $lang === 'kz' ? 'ru' : 'kz';
+                    // Используем slug_kz или slug_ru из категории
+                    $categorySlug = $category["slug_{$targetLang}"] ?? '';
+
+                    if (!empty($categorySlug)) {
+                        $switchUrl = ($targetLang === 'ru' ? '/ru/' : '/') . $categorySlug;
+                    } else {
+                        $switchUrl = $targetLang === 'ru' ? '/ru/' : '/';
+                    }
+                }
+                // Главная страница
+                else {
+                    $switchUrl = $lang === 'kz' ? '/ru/' : '/';
                 }
                 ?>
                 <a href="<?= $switchUrl ?>" class="cursor-pointer hover:text-black font-bold transition">
-                    <?= $lang === 'kz' ? 'ҚАЗ' : 'РУС' ?>
+                    <?= $lang === 'kz' ? 'РУС' : 'ҚАЗ' ?>
                 </a>
             </div>
         </div>

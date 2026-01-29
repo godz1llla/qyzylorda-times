@@ -65,7 +65,12 @@ class PostModel extends Model
     {
         $slugColumn = "slug_{$lang}";
 
-        $sql = "SELECT p.*, c.name_{$lang} as category_name, c.slug_{$lang} as category_slug,
+        $sql = "SELECT p.*, 
+                       p.slug_kz, p.slug_ru,
+                       c.name_{$lang} as category_name, 
+                       c.slug_{$lang} as category_slug,
+                       c.slug_kz as category_slug_kz,
+                       c.slug_ru as category_slug_ru,
                        u.full_name as author_name
                 FROM {$this->table} p
                 LEFT JOIN categories c ON p.category_id = c.id

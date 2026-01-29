@@ -40,6 +40,9 @@ class HomeController extends Controller
         // Популярные новости
         $popularNews = $postModel->getPopular($lang, 4);
 
+        // Получаем категории для навигации
+        $categories = $this->categoryModel->getAllCategories($lang);
+
         // Получаем погоду
         $weatherService = new WeatherService();
         $weather = $weatherService->getCurrentWeather();
@@ -56,7 +59,8 @@ class HomeController extends Controller
             'latestNews' => $latestNews,
             'popularNews' => $popularNews,
             'weather' => $weather,
-            'currency' => $currency
+            'currency' => $currency,
+            'categories' => $categories
         ]);
     }
 }

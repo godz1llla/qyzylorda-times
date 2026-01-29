@@ -22,12 +22,18 @@ class CategoryController extends Controller
      */
     public function show($categorySlug)
     {
+        // DEBUG - HTML output
+        echo "<!-- DEBUG: slug=$categorySlug, lang={$this->lang} -->\n";
+
         // Получаем категорию
         $category = $this->categoryModel->getBySlug($categorySlug, $this->lang);
 
+        // DEBUG
+        echo "<!-- DEBUG: category=" . ($category ? $category['name'] : 'NOT FOUND') . " -->\n";
+
         if (!$category) {
             http_response_code(404);
-            echo "Категория не найдена";
+            echo "Категория не найдена (slug: $categorySlug, lang: {$this->lang})";
             return;
         }
 
@@ -39,8 +45,14 @@ class CategoryController extends Controller
         // Получаем посты категории
         $posts = $this->postModel->getByCategory($categorySlug, $this->lang, $perPage, $offset);
 
+        // DEBUG
+        echo "<!-- DEBUG: posts count=" . count($posts) . " -->\n";
+
         // Получаем все категории для меню
         $categories = $this->categoryModel->getAllCategories($this->lang);
+
+        // DEBUG перед передачей в view
+        echo "<!-- DEBUG BEFORE VIEW: category name=" . ($category['name'] ?? 'EMPTY') . " -->\n";
 
         // Передаем данные в представление
         $this->view('category/index', [
