@@ -53,11 +53,12 @@
 <body class="bg-gray-100 flex flex-col min-h-screen">
 
     <!-- === ТОП-БАР (РЕКЛАМА И ИНФО) === -->
-    <div class="bg-white border-b border-gray-200 py-2 hidden md:block">
+    <div class="bg-white border-b border-gray-200 py-3 hidden md:block">
         <div class="container mx-auto px-4 flex justify-between items-center">
             <!-- Левая часть: Баннер/QR -->
             <div class="flex items-center space-x-4">
-                <div class="border rounded p-2 flex items-center gap-2">
+                <div
+                    class="border-2 border-brand-red rounded-xl p-3 flex items-center gap-2 shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105">
                     <i class="fas fa-qrcode text-3xl text-brand-red"></i>
                     <div class="text-xs leading-tight">
                         <strong>Kaspi QR</strong><br>
@@ -67,7 +68,8 @@
             </div>
 
             <!-- Правая часть: Инфо (Кызылорда) -->
-            <div class="flex items-center bg-green-900 text-white rounded px-4 py-2 space-x-6 text-sm">
+            <div
+                class="flex items-center bg-gradient-to-r from-green-900 to-green-800 text-white rounded-xl px-5 py-3 space-x-6 text-sm shadow-lg hover:shadow-xl transition-all duration-300">
                 <div class="flex items-center gap-2">
                     <i class="fas fa-phone-alt"></i>
                     <span>8 (7242) 27-01-01</span>

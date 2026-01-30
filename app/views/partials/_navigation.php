@@ -1,17 +1,16 @@
 <!-- === МЕНЮ НАВИГАЦИИ === -->
-<nav class="bg-white shadow sticky top-0 z-50">
+<nav class="bg-white shadow-md sticky top-0 z-50">
     <div class="container mx-auto px-4">
         <div class="flex justify-between items-center">
             <!-- Ссылки -->
             <ul class="flex space-x-6 py-4 font-bold text-gray-700 text-sm overflow-x-auto whitespace-nowrap">
-                <li class="hover:text-brand-red cursor-pointer">
-                    <i class="fas fa-bars mr-2"></i>
+                <li class="hover:text-brand-red cursor-pointer transition-colors duration-200">
                     <?= $lang === 'kz' ? 'МӘЗІР' : 'МЕНЮ' ?>
                 </li>
 
                 <?php if (isset($categories) && !empty($categories)): ?>
                     <?php foreach ($categories as $cat): ?>
-                        <li class="hover:text-brand-red cursor-pointer">
+                        <li class="relative group">
                             <?php
                             // Категория "Новости" ведет на главную страницу
                             if ($cat['slug'] === 'zhanalyqtar' || $cat['slug'] === 'novosti') {
@@ -20,9 +19,11 @@
                                 $catUrl = '/' . ($lang === 'ru' ? 'ru/' : '') . $cat['slug'];
                             }
                             ?>
-                            <a href="<?= $catUrl ?>">
+                            <a href="<?= $catUrl ?>" class="hover:text-brand-red transition-colors duration-200 py-2 block">
                                 <?= strtoupper($cat['name']) ?>
                             </a>
+                            <span
+                                class="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-red transition-all duration-300 group-hover:w-full"></span>
                         </li>
                     <?php endforeach; ?>
                 <?php else: ?>
@@ -52,9 +53,15 @@
             </ul>
 
             <!-- Иконки справа -->
-            <div class="flex space-x-4 text-gray-500 pl-4 border-l items-center">
-                <i class="fas fa-search cursor-pointer hover:text-black"></i>
-                <i class="fas fa-eye cursor-pointer hover:text-black"></i>
+            <div class="flex space-x-3 items-center">
+                <button
+                    class="w-10 h-10 flex items-center justify-center rounded-lg bg-gray-100 text-gray-700 hover:bg-brand-red hover:text-white transition-all duration-200">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button
+                    class="w-10 h-10 flex items-center justify-center rounded-lg bg-gray-100 text-gray-700 hover:bg-brand-red hover:text-white transition-all duration-200">
+                    <i class="fas fa-eye"></i>
+                </button>
 
                 <!-- Переключатель языка -->
                 <?php
@@ -91,7 +98,8 @@
                     $switchUrl = $lang === 'kz' ? '/ru/' : '/';
                 }
                 ?>
-                <a href="<?= $switchUrl ?>" class="cursor-pointer hover:text-black font-bold transition">
+                <a href="<?= $switchUrl ?>"
+                    class="px-4 h-10 flex items-center justify-center rounded-lg bg-brand-red text-white font-bold hover:bg-red-700 transition-all duration-200 shadow-md">
                     <?= $lang === 'kz' ? 'РУС' : 'ҚАЗ' ?>
                 </a>
             </div>
